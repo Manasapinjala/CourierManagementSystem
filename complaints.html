@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Customer Complaints</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>Customer Complaints</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Tracking ID</th>
+<th>Complaint</th>
+</tr>
+
+{% for c in complaints %}
+
+<tr>
+<td>{{c[0]}}</td>
+<td>{{c[1]}}</td>
+<td>{{c[2]}}</td>
+<td>{{c[3]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/admin">
+<button>Back to Admin</button>
+</a>
+
+</body>
+</html>

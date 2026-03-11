@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Track Courier</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+
+.progress{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+
+.step{
+padding:10px 20px;
+margin:5px;
+border-radius:5px;
+background:#dcdcdc;
+}
+
+.active{
+background:#0a1f44;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Track Courier</h1>
+
+<form method="POST">
+
+<input type="text" name="tracking_id" placeholder="Enter Tracking ID" required>
+
+<button type="submit">Track</button>
+
+</form>
+
+{% if courier %}
+
+<h2>Courier Details</h2>
+
+<p><b>Tracking ID:</b> {{courier[1]}}</p>
+<p><b>Sender:</b> {{courier[2]}}</p>
+<p><b>Receiver:</b> {{courier[3]}}</p>
+<p><b>Source:</b> {{courier[4]}}</p>
+<p><b>Destination:</b> {{courier[5]}}</p>
+<p><b>Status:</b> {{courier[6]}}</p>
+
+<div class="progress">
+
+<div class="step {% if courier[6]=='Order Placed' %}active{% endif %}">Order Placed</div>
+
+<div class="step {% if courier[6]=='Dispatched' %}active{% endif %}">Dispatched</div>
+
+<div class="step {% if courier[6]=='In Transit' %}active{% endif %}">In Transit</div>
+
+<div class="step {% if courier[6]=='Out for Delivery' %}active{% endif %}">Out for Delivery</div>
+
+<div class="step {% if courier[6]=='Delivered' %}active{% endif %}">Delivered</div>
+
+</div>
+
+{% endif %}
+
+<br><br>
+
+<a href="/">Back Home</a>
+
+</body>
+
+</html>

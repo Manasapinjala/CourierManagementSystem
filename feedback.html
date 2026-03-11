@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Customer Feedback</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>Customer Feedback</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Message</th>
+</tr>
+
+{% for f in feedback %}
+
+<tr>
+<td>{{f[0]}}</td>
+<td>{{f[1]}}</td>
+<td>{{f[2]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/admin">
+<button>Back to Admin</button>
+</a>
+
+</body>
+</html>
